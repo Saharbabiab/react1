@@ -87,6 +87,13 @@ const app = observer(({ heads, word, letters }) => {
     return result;
   }
 
+  function deleteP(id) {
+    heads.deletePlayer(id);
+    const index = player.findIndex((p) => p.id == id);
+    player.splice(index, 1);
+    setPlayer([...player]);
+  }
+
   return (
     <>
       <h1>Big Heads: </h1>
@@ -118,7 +125,8 @@ const app = observer(({ heads, word, letters }) => {
       <div style={{ display: "flex" }}>
         {map(heads.getPlayers(), (head) => (
           <div style={{ marginRight: "50px" }}>
-            <ShowHeads heads={heads} head={head} id={head.id} />
+            <ShowHeads head={head} id={head.id} />
+            <button onClick={() => deleteP(head.id)}>delete</button>
           </div>
         ))}
       </div>
