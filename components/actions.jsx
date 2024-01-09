@@ -133,7 +133,6 @@ const app = observer(({ heads, word, letters }) => {
       {active ? (
         <div>
           <h1>Word: {word.hiddenWord}</h1>
-          <h1>Wrong letters: {letters.getWrongLetter()}</h1>
         </div>
       ) : null}
     </>
